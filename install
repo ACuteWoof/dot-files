@@ -5,18 +5,18 @@
 install_skel(){
 	if [ $(whoami) = "root"  ];
 	then
-		mkdir -p /etc/skel/ || echo "Directory already exists, installing to existing directory."
-		cp -r homedir/* /etc/skel/.
+		mv /etc/skel /etc/skel.old || mkdir -p /etc/skel
+		cp -r homedir/ /etc/skel/.
 	else
-		sudo mkdir -p /etc/skel/ || echo "Directory already exists, installing to existing directory."
-		sudo cp -r ./homedir/* /etc/skel/.
+		sudo mv /etc/skel /etc/skel.old || sudo mkdir -p /etc/skel
+		sudo cp -r ./homedir/ /etc/skel/.
 	fi
 }
 
 install_home(){
 	for i in `find ./homedir`; do
 		rm -rf ~/$i
-		cp -r ./homedir/$i ~/$i
+		cp -r $i ~/.
 	done
 }
 
