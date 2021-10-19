@@ -1,0 +1,29 @@
+#!/bin/sh
+
+\clear
+
+install_skel(){
+	if [ $(whoami) = "root"  ];
+	then
+		mkdir -p /etc/skel/ || echo "Directory already exists, installing to existing directory."
+		cp -r homedir/* /etc/skel/.
+	else
+		sudo mkdir -p /etc/skel/ || echo "Directory already exists, installing to existing directory."
+		sudo cp -r ./homedir/* /etc/skel/.
+	fi
+}
+
+install_home(){
+	for i in `find ./homedir`; do
+		rm -rf ~/$i
+		cp -r ./homedir/$i ~/$i
+	done
+}
+
+
+printf "\033[1;92mWoof's Configuration Installer\033[0m\n"
+read -p "Do you want to install the configurations for the current user? [y/n] ": yn
+case $yn in 
+	[Yy]* ) install_home; install_skel;;
+	[Nn]* ) install_skel;;
+esac
