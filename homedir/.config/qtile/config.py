@@ -217,6 +217,20 @@ widgets_list: list = [
     ),
     widget.Sep(padding=6, linewidth=0, background=colors["seperator"]),
     widget.Spacer(),
+    ### Clock ###
+    widget.Sep(padding=6, linewidth=0, background=colors["color5"]),
+    widget.Clock(
+        foreground=colors["color5fg"],
+        background=colors["color5"],
+        # Uncomment below line to show full info.
+        format="%A - %H:%M",
+        #        Uncomment the below snippet to enable calendar as a notification if dunst uses monospace font.
+        #        mouse_callbacks={
+        #            "Button1": lambda: os.system(' notify-send "$(cal)" -i ICON ')
+        #        },
+    ),
+    widget.Sep(padding=6, linewidth=0, background=colors["color5"]),
+    widget.Spacer(),
     ### Systray ###
     widget.Systray(background=colors["systray"], padding=10),
     widget.Sep(linewidth=0, padding=6, background=colors["systray"]),
@@ -300,7 +314,7 @@ widgets_list: list = [
         foreground=colors["color1fg"],
         background=colors["color1"],
         # Uncomment below line to show full info.
-        format="%H:%M, %D",
+        format="%D",
         #        Uncomment the below snippet to enable calendar as a notification if dunst uses monospace font.
         #        mouse_callbacks={
         #            "Button1": lambda: os.system(' notify-send "$(cal)" -i ICON ')
@@ -318,12 +332,12 @@ screen = Screen(
 #     wallpaper=wallpaper,
 #     wallpaper_mode="fill",
     top=bar.Bar(
-        widgets_list,
-        int(looks["panel-size"]),
-        background=colors["bg"],
-        opacity=float(looks["panel-opacity"]),
-        margin=bar_margin,
-    ),
+       widgets_list,
+       int(looks["panel-size"]),
+       background=colors["bg"],
+       opacity=float(looks["panel-opacity"]),
+       margin=bar_margin,
+   ),
 )
 
 screens = [screen]
@@ -389,26 +403,14 @@ floating_layout = layout.Floating(
 def start_once():
     home = os.path.expanduser("~")
     subprocess.call([home + "/.config/qtile/autostart.sh"])
-    subprocess.Popen([home + "/.config/qtile/plank-runner.sh", "start"])
-    subprocess.Popen([home + "/.config/qtile/plank-runner.sh", "show"])
 
 @hook.subscribe.startup
 def runner():
     home = os.path.expanduser("~")
     subprocess.Popen(["xsetroot", "-cursor_name", "left_ptr"])
     subprocess.Popen(["xwallpaper", "--zoom", wallpaper])
-    subprocess.Popen([home + "/.config/qtile/conky.sh"])
-    subprocess.Popen(["killall", "plank"])
-    subprocess.Popen([home + "/.config/qtile/plank-runner.sh", "start"])
-    subprocess.Popen([home + "/.config/qtile/plank-runner.sh", "show"])
 
 floating_types = ["notification", "toolbar", "splash", "dialog", "dock"]
-
-@hook.subscribe.client_new
-def bring_plank_to_front(*_):
-    home = os.path.expanduser("~")
-    subprocess.Popen([home + "/.config/qtile/plank-runner.sh", "start"])
-    subprocess.Popen([home + "/.config/qtile/plank-runner.sh", "show"])
 
 @lazy.function
 def float_to_front(qtile):

@@ -1,6 +1,6 @@
 configuration {
  modi: "window,drun,ssh,combi";
- theme: "nord";
+ theme: "tmrnight";
  font: "Fira Sans 12";
  show-icons: true;
  }
