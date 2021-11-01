@@ -1,6 +1,7 @@
 import os
 import json
 import subprocess
+from datetime import datetime
 
 from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
@@ -88,6 +89,7 @@ keys = [
     ),
     Key([mod], "f", lazy.spawn("flameshot gui"), desc="Open flameshot gui"),
     Key([mod], "s", lazy.spawn("scrot"), desc="Take full screen ss using scrot"),
+    Key([mod], "d", lazy.spawn(f"notify-send '{datetime.now()}'"), desc="Show date and time"),
 ]
 
 groups = [Group(i) for i in "1234567890"]
@@ -247,23 +249,23 @@ widgets_list: list = [
     # widget.Sep(padding=6, linewidth=0, background=colors["color4"]),
     # widget.Sep(padding=12, linewidth=0, background=colors["seperator"]),
     ### Weather ###
-    widget.Sep(padding=6, linewidth=0, background=colors["seperator"]),
-    widget.Sep(padding=6, linewidth=0, background=colors["color2"]),
-    widget.TextBox(
-        text="globe-asia ",
-        font="Font Awesome 5 Free Solid",
-        foreground=colors["color2fg"],
-        background=colors["color2"],
-        fontsize=14,
-        padding=0,
-    ),
-    widget.Wttr(
-        background=colors["color2"],
-        foreground=colors["color2fg"],
-        font=widget_defaults["font"],
-        location={"Jaffna": "Woofverse"}
-    ),
-    widget.Sep(padding=6, linewidth=0, background=colors["color2"]),
+#     widget.Sep(padding=6, linewidth=0, background=colors["seperator"]),
+#     widget.Sep(padding=6, linewidth=0, background=colors["color2"]),
+#     widget.TextBox(
+#         text="globe-asia ",
+#         font="Font Awesome 5 Free Solid",
+#         foreground=colors["color2fg"],
+#         background=colors["color2"],
+#         fontsize=14,
+#         padding=0,
+#     ),
+#     widget.Wttr(
+#         background=colors["color2"],
+#         foreground=colors["color2fg"],
+#         font=widget_defaults["font"],
+#         location={"Jaffna": "Woofverse"}
+#     ),
+#     widget.Sep(padding=6, linewidth=0, background=colors["color2"]),
     # widget.Sep(padding=6, linewidth=0, background=colors["seperator"]),
     ### Update ###
     # widget.Sep(padding=6, linewidth=0, background=colors["seperator"]),
