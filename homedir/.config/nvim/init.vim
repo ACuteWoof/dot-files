@@ -13,6 +13,11 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'famiu/feline.nvim'
 Plug 'akinsho/bufferline.nvim'
 Plug 'ellisonleao/glow.nvim'
+Plug 'pangloss/vim-javascript'
+Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'udalov/kotlin-vim'
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'windwp/nvim-autopairs'
 
 call plug#end()
 
@@ -20,20 +25,18 @@ syntax on
 set number relativenumber
 set termguicolors
 set splitbelow splitright
+set cursorline
+set noshowmode
 
 colorscheme base16-tomorrow-night
 
 let g:dashboard_custom_header = [
-	\'  ▄▄▄       ▄████▄   █    ██ ▄▄▄█████▓▓█████  █     █░ ▒█████   ▒█████    █████▒',
-	\' ▒████▄    ▒██▀ ▀█   ██  ▓██▒▓  ██▒ ▓▒▓█   ▀ ▓█░ █ ░█░▒██▒  ██▒▒██▒  ██▒▓██   ▒ ',
-	\' ▒██  ▀█▄  ▒▓█    ▄ ▓██  ▒██░▒ ▓██░ ▒░▒███   ▒█░ █ ░█ ▒██░  ██▒▒██░  ██▒▒████ ░ ',
-	\' ░██▄▄▄▄██ ▒▓▓▄ ▄██▒▓▓█  ░██░░ ▓██▓ ░ ▒▓█  ▄ ░█░ █ ░█ ▒██   ██░▒██   ██░░▓█▒  ░ ',
-	\'  ▓█   ▓██▒▒ ▓███▀ ░▒▒█████▓   ▒██▒ ░ ░▒████▒░░██▒██▓ ░ ████▓▒░░ ████▓▒░░▒█░    ',
-	\'  ▒▒   ▓▒█░░ ░▒ ▒  ░░▒▓▒ ▒ ▒   ▒ ░░   ░░ ▒░ ░░ ▓░▒ ▒  ░ ▒░▒░▒░ ░ ▒░▒░▒░  ▒ ░    ',
-	\'   ▒   ▒▒ ░  ░  ▒   ░░▒░ ░ ░     ░     ░ ░  ░  ▒ ░ ░    ░ ▒ ▒░   ░ ▒ ▒░  ░      ',
-	\'   ░   ▒   ░         ░░░ ░ ░   ░         ░     ░   ░  ░ ░ ░ ▒  ░ ░ ░ ▒   ░ ░    ',
-	\'       ░  ░░ ░         ░                 ░  ░    ░        ░ ░      ░ ░          ',
-	\'           ░                                                                    ',
+	\' █████╗  ██████╗██╗   ██╗████████╗███████╗██╗    ██╗ ██████╗  ██████╗ ███████╗',
+	\'██╔══██╗██╔════╝██║   ██║╚══██╔══╝██╔════╝██║    ██║██╔═══██╗██╔═══██╗██╔════╝',
+	\'███████║██║     ██║   ██║   ██║   █████╗  ██║ █╗ ██║██║   ██║██║   ██║█████╗  ',
+	\'██╔══██║██║     ██║   ██║   ██║   ██╔══╝  ██║███╗██║██║   ██║██║   ██║██╔══╝  ',
+	\'██║  ██║╚██████╗╚██████╔╝   ██║   ███████╗╚███╔███╔╝╚██████╔╝╚██████╔╝██║     ',
+	\'╚═╝  ╚═╝ ╚═════╝ ╚═════╝    ╚═╝   ╚══════╝ ╚══╝╚══╝  ╚═════╝  ╚═════╝ ╚═╝     ',
 \]
 
 let g:dashboard_default_executive ='telescope'
@@ -41,6 +44,8 @@ hi NvimTreeFolderName guifg=fg
 
 noremap <C-n> :NvimTreeToggle<CR>
 noremap <C-p> :Glow<CR>
+
+autocmd BufWritePre * ::CocCommand prettier.formatFile | :w
 
 set mouse=a
 
@@ -448,7 +453,33 @@ require'feline'.setup {
         bufnames = {}
     }
 }
+
+
+vim.opt.list = true
+vim.opt.listchars:append("space:⋅")
+
+require("indent_blankline").setup {
+   indentLine_enabled = 1,
+   char = "▏",
+   show_end_of_line = false,
+   space_char_blankline = " ",
+   show_current_context_start = true,
+   filetype_exclude = {
+      "help",
+      "terminal",
+      "dashboard",
+      "packer",
+      "lspinfo",
+      "TelescopePrompt",
+      "TelescopeResults",
+   },
+   buftype_exclude = { "terminal" },
+   }
+
+
 EOF
 
-""" Bufferline
+""" Other
 lua require("bufferline").setup{}
+lua require('nvim-autopairs').setup{}
+
