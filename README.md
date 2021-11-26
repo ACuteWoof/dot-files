@@ -1,6 +1,5 @@
  
   <h1>Woof's Nice Rice</h1>
-  https://acutewoof.github.io/dot-files
   <hr>
 	<h2>Separate Github Repos For The Dotfiles</h2>
 	<ul>
