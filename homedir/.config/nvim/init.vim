@@ -3,7 +3,6 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'neoclide/coc.nvim', {'do': 'npm install' }
 Plug 'RRethy/vim-hexokinase', {'do': 'make; make install'}
 Plug 'chriskempson/base16-vim'
-Plug 'github/copilot.vim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
@@ -13,11 +12,13 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'famiu/feline.nvim'
 Plug 'akinsho/bufferline.nvim'
 Plug 'ellisonleao/glow.nvim'
+Plug 'folke/tokyonight.nvim'
 Plug 'pangloss/vim-javascript'
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'udalov/kotlin-vim'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'windwp/nvim-autopairs'
+Plug 'github/copilot.vim'
 
 call plug#end()
 
@@ -28,7 +29,9 @@ set splitbelow splitright
 set cursorline
 set noshowmode
 
-colorscheme base16-tomorrow-night
+let g:tokyonight_transparent = 'true'
+let g:tokyonight_transparent_sidebar = 'true'
+colorscheme tokyonight
 
 let g:dashboard_custom_header = [
 	\' █████╗  ██████╗██╗   ██╗████████╗███████╗██╗    ██╗ ██████╗  ██████╗ ███████╗',
@@ -44,8 +47,48 @@ hi NvimTreeFolderName guifg=fg
 
 noremap <C-n> :NvimTreeToggle<CR>
 noremap <C-p> :Glow<CR>
+nnoremap <C-l> :BufferLineCycleNext<CR>
+nnoremap <C-h> :BufferLineCyclePrev<CR>
+nnoremap <A-l> :BufferLineMoveNext<CR>
+nnoremap <A-h> :BufferLineMovePrev<CR>
 
-autocmd BufWritePre * ::CocCommand prettier.formatFile | :w
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
+" position. Coc only does snippet and additional edit on confirm.
+" <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" autocmd BufWritePre * ::CocCommand prettier.formatFile | :w
 
 set mouse=a
 
@@ -142,17 +185,17 @@ if not pcall(require, "feline") then
 end
 
 local colors = {
-    bg = '#282a2e',
-    fg = 'c5c8c6',
-    yellow = '#f0c674',
-    cyan = '#8abeb7',
-    darkblue = '#81a2be',
-    green = '#b5bd68',
-    orange = '#f0c674',
-    violet = '#b294bb',
-    magenta = '#b294bb',
-    blue = '#81a2be',
-    red = 'cc6666'
+    bg = '#15161E',
+    fg = 'c0caf5',
+    yellow = 'e0af68',
+    cyan = '7dcfff',
+    darkblue = '7aa2f7',
+    green = '9ece6a',
+    orange = 'ff9e64',
+    violet = 'bb9af7',
+    magenta = 'bb9af7',
+    blue = '7aa2f7',
+    red = 'f7768e'
 }
 
 local vi_mode_colors = {
@@ -456,13 +499,11 @@ require'feline'.setup {
 
 
 vim.opt.list = true
-vim.opt.listchars:append("space:⋅")
 
 require("indent_blankline").setup {
    indentLine_enabled = 1,
    char = "▏",
    show_end_of_line = false,
-   space_char_blankline = " ",
    show_current_context_start = true,
    filetype_exclude = {
       "help",

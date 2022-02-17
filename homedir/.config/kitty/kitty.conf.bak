@@ -163,10 +163,12 @@ box_drawing_scale 0.001, 1, 1.5, 2
 #: }}}
 
 #: Cursor customization {{{
-# cursor #cccccc
+
+cursor #cccccc
 
 #: Default cursor color
-# cursor_text_color #111111
+
+cursor_text_color #111111
 
 #: Choose the color of text under the cursor. If you want it rendered
 #: with the background color of the cell underneath instead, use the
@@ -266,7 +268,8 @@ mouse_hide_wait 3.0
 #: typing text. Disabled by default on macOS as getting it to work
 #: robustly with the ever-changing sea of bugs that is Cocoa is too
 #: much effort.
-# url_color #0087bd
+
+url_color #0087bd
 url_style curly
 
 #: The color and style for highlighting URLs on mouse-over. url_style
@@ -576,14 +579,17 @@ placement_strategy center
 #: this option. Using a value of center means the cell area will be
 #: placed centrally. A value of top-left means the padding will be on
 #: only the bottom and right edges.
-# active_border_color #00ff00
+
+active_border_color #00ff00
 
 #: The color for the border of the active window. Set this to none to
 #: not draw borders around the active window.
-# inactive_border_color #cccccc
+
+inactive_border_color #cccccc
 
 #: The color for the border of inactive windows
-# bell_border_color #ff5a00
+
+bell_border_color #ff5a00
 
 #: The color for the border of inactive windows in which a bell has
 #: occurred
@@ -730,15 +736,17 @@ active_tab_title_template none
 
 #: Template to use for active tabs, if not specified falls back to
 #: tab_title_template.
-# active_tab_foreground   #000
-# active_tab_background   #eee
+
+active_tab_foreground   #000
+active_tab_background   #eee
 active_tab_font_style   bold-italic
-# inactive_tab_foreground #444
-# inactive_tab_background #999
+inactive_tab_foreground #444
+inactive_tab_background #999
 inactive_tab_font_style normal
 
 #: Tab bar colors and styles
-# tab_bar_background none
+
+tab_bar_background none
 
 #: Background color for the tab bar. Defaults to using the terminal
 #: background color.
@@ -877,14 +885,16 @@ term xterm-kitty
 #: }}}
 
 #: OS specific tweaks {{{
-# wayland_titlebar_color system
+
+wayland_titlebar_color system
 
 #: Change the color of the kitty window's titlebar on Wayland systems
 #: with client side window decorations such as GNOME. A value of
 #: system means to use the default system color, a value of background
 #: means to use the background color of the currently active window
 #: and finally you can use an arbitrary color, such as #12af59 or red.
-# macos_titlebar_color system
+
+macos_titlebar_color system
 
 #: Change the color of the kitty window's titlebar on macOS. A value
 #: of system means to use the default system color, a value of
@@ -1365,50 +1375,46 @@ map kitty_mod+f6 debug_config
 #### COLORS ####
 # Base16 Tomorrow Night - kitty color config
 # Scheme by Chris Kempson (http://chriskempson.com)
-# background #1d1f21
-# foreground #c5c8c6
-# selection_background #c5c8c6
-# selection_foreground #1d1f21
-# url_color #b4b7b4
-# cursor #c5c8c6
-# active_border_color #969896
-# inactive_border_color #282a2e
-# active_tab_background #1d1f21
-# active_tab_foreground #c5c8c6
-# inactive_tab_background #282a2e
-# inactive_tab_foreground #b4b7b4
-# tab_bar_background #282a2e
+background #1d1f21
+foreground #c5c8c6
+selection_background #c5c8c6
+selection_foreground #1d1f21
+url_color #b4b7b4
+cursor #c5c8c6
+active_border_color #969896
+inactive_border_color #282a2e
+active_tab_background #1d1f21
+active_tab_foreground #c5c8c6
+inactive_tab_background #282a2e
+inactive_tab_foreground #b4b7b4
+tab_bar_background #282a2e
 
 # normal
-# color0 #282a2e
-# color1 #a54242
-# color2 #8c9440
-# color3 #de935f
-# color4 #5f819d
-# color5 #85678f
-# color6 #5e8d87
-# color7 #707880
-# color8  #373b41
-# color9  #cc6666
-# color10 #b5bd68
-# color11 #f0c674
-# color12 #81a2be
-# color13 #b294bb
-# color14 #8abeb7
-# color15 #c5c8c6
+color0 #282a2e
+color1 #a54242
+color2 #8c9440
+color3 #de935f
+color4 #5f819d
+color5 #85678f
+color6 #5e8d87
+color7 #707880
+
+
+color8  #373b41
+color9  #cc6666
+color10 #b5bd68
+color11 #f0c674
+color12 #81a2be
+color13 #b294bb
+color14 #8abeb7
+color15 #c5c8c6
 
 # extended base16 colors
-# color16 #de935f
-# color17 #a3685a
-# color18 #282a2e
-# color19 #373b41
-# color20 #b4b7b4
-# color21 #e0e0e0
+color16 #de935f
+color17 #a3685a
+color18 #282a2e
+color19 #373b41
+color20 #b4b7b4
+color21 #e0e0e0
 
 background_opacity 0.9
-
-
-# BEGIN_KITTY_THEME
-# Tokyo Night
-include current-theme.conf
-# END_KITTY_THEME
