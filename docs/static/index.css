@@ -68,6 +68,10 @@ a.button:hover {
   margin: 1rem;
 }
 
+.installation {
+  text-align: center;
+}
+
 button {
   box-shadow: none;
   border-radius: 3px;
