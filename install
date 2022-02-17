@@ -14,8 +14,11 @@ install_skel(){
 }
 
 install_home(){
+	for i in `find ./homedir/.config/`; do
+		rm -rf ~/.config/$i
+	done
+
 	for i in `find ./homedir`; do
-		rm -rf ~/$i
 		cp -r $i ~/.
 	done
 }
