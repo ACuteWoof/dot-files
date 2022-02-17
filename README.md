@@ -22,6 +22,15 @@
 # Colorscheme (Tokyonight)
 ![c0](./docs/static/c0.png)
 
+# Installation
+Run the `install` script after installing the following dependencies
+## Dependencies
+- `qtile`
+- `rofi`
+- `dunst`
+- `picom`
+- `kitty`
+
 # Credits
 - Wallpapers from [FrenzyExists/wallpapers](https://github.com/frenzyexists/wallpapers)
 - Rofi theme modified from [Joni84/rofi](https://github.com/joni84/rofi)
