@@ -11,4 +11,7 @@
 </p>
 
 # Screenshots
-![s1](https://woof-os.github.io/static/screenshot.jpg)
+![s0](./docs/static/s0.png)
+![s1](./docs/static/s1.png)
+![s2](./docs/static/s2.png)
+![s3](./docs/static/s3.png)
