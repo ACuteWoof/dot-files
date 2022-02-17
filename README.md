@@ -23,5 +23,6 @@
 ![c0](./docs/static/c0.png)
 
 # Credits
-- Wallpapers from [FrenzyExists](https://github.com/frenzyexists/wallpapers)
-- Rofi theme modified from [Joni](https://github.com/joni84/rofi)
+- Wallpapers from [FrenzyExists/wallpapers](https://github.com/frenzyexists/wallpapers)
+- Rofi theme modified from [Joni84/rofi](https://github.com/joni84/rofi)
+- Colorscheme from [folke/Tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
