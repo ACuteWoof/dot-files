@@ -3,7 +3,7 @@
 \clear
 
 install_skel(){
-	if [ $(whoami) = "root"  ];
+	if [ $(whoami) = "root" ];
 	then
 		mv /etc/skel /etc/skel.old || mkdir -p /etc/skel
 		cp -r homedir/ /etc/skel/.
