@@ -12,6 +12,13 @@
 
 # Screenshots
 ![s0](./docs/static/s0.png)
+
 ![s1](./docs/static/s1.png)
+
 ![s2](./docs/static/s2.png)
+
 ![s3](./docs/static/s3.png)
+
+# Credits
+- Wallpapers from [FrenzyExists](https://github.com/frenzyexists/wallpapers)
+- Rofi theme modified from [Joni](https://github.com/joni84/rofi)
