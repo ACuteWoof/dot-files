@@ -12,7 +12,7 @@
   <hr>
 	<h2>Screenshots</h2>
 	<br />
-	<img src="https://woof-os.github.io/screenshot.jpg" width="100%">
+	<img src="https://woof-os.github.io/static/screenshot.jpg" width="100%">
 	<br />
         <img src="docs/screenshots/dashboard-screenshot.png" width="100%" />
 	<br />
