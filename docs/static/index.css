@@ -1,0 +1,105 @@
+@import url("https://acutewoof.github.io/minimalist-css-kit/styles/main.css");
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Rubik&display=swap");
+@import url("./colorscheme.css");
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+* {
+  font-family: "Rubik", sans-serif;
+}
+
+a.button {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+a.button button {
+  margin: 0;
+}
+
+a.button:hover {
+  background-color: #00000000;
+}
+
+.screenshots {
+  text-align: center;
+}
+.screenshots img {
+  width: 80%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.h1pic h1 {
+  font-family: "Kalam", cursive;
+  color: #bb9afc;
+  font-size: 1000%;
+  text-shadow: 0px 0px 10px #1a1b26;
+  margin: 1rem;
+  margin-top: 5%;
+}
+
+.badges {
+  margin-bottom: 5%;
+}
+
+.colorscheme {
+  text-align: center;
+}
+
+.colorscheme img {
+  border-radius: 5px;
+}
+
+.credits {
+  text-align: center;
+}
+
+.buttons {
+  margin: 1rem;
+}
+
+button {
+  box-shadow: none;
+  border-radius: 5px;
+}
+
+button a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button a:hover {
+  color: inherit;
+}
+
+h1 {
+	text-shadow: 0px 0px 10px var(--nord0);
+}
+
+@media screen and (max-width: 1000px) {
+  .screenshots img {
+    width: 100%;
+  }
+
+  .colorscheme img {
+    width: 100%;
+  }
+
+  h1 {
+    margin-top: 5vh;
+    font-size: 500%;
+  }
+  .badges {
+    display: none;
+  }
+  button {
+    padding: 2rem;
+    border-radius: 1vh;
+  }
+}
