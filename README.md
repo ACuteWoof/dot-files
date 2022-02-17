@@ -19,6 +19,9 @@
 
 ![s3](./docs/static/s3.png)
 
+# Colorscheme (Tokyonight)
+![c0](./docs/static/c0.png)
+
 # Credits
 - Wallpapers from [FrenzyExists](https://github.com/frenzyexists/wallpapers)
 - Rofi theme modified from [Joni](https://github.com/joni84/rofi)
