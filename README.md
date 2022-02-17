@@ -1,1 +1,1 @@
-![H1](./docs/static/h1.png)
+<img align="center" src="./docs/static/h1.png">
