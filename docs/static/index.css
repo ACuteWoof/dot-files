@@ -32,11 +32,25 @@ a.button:hover {
 
 .screenshots {
   text-align: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.5rem;
+  padding: 1rem;
 }
+
+.screenshots:hover img {
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+
+.screenshots img:hover {
+  opacity: 1;
+}
+
 .screenshots img {
-  width: 80%;
+  width: 100%;
   height: auto;
-  border-radius: 5px;
+  border-radius: 0.5%;
 }
 
 .h1pic h1 {
